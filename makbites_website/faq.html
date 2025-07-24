@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - Makbites</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <header class="header sticky">
+    <img src="../assets/images/logo.png" alt="Makbites Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how.html">How It Works & Features</a></li>
+        <li><a href="restaurants.html">Restaurants</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="faq" style="background: #fff; border-radius: 28px; box-shadow: 0 2px 24px rgba(229,62,62,0.08); max-width: 900px; margin: 40px auto 32px auto; padding: 38px 24px 28px 24px;">
+    <h2 style="color: #E53E3E; font-family: 'Creepster', cursive, sans-serif; font-size: 2.3rem; margin-bottom: 24px; text-align:left;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item open" style="border-bottom:1px solid #eee;">
+        <div tabindex="0" class="faq-question" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:bold;color:#E53E3E;font-size:1.25rem;padding:12px 0;">
+          How do I use Makbites?
+          <span style="font-size:1.5rem; color:#E53E3E;">&#9660;</span>
+        </div>
+        <div class="faq-answer" style="display:block; padding: 8px 0 16px 0; color:#2D3748; font-size:1.1rem;">Simply sign up, set your weekly meal schedule, and let Makbites handle the rest. Your meals will be ordered and delivered automatically based on your preferences.</div>
+      </div>
+      <div class="faq-item" style="border-bottom:1px solid #eee;">
+        <div tabindex="0" class="faq-question" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:bold;color:#E53E3E;font-size:1.25rem;padding:12px 0;">
+          Can I choose my favorite restaurants?
+          <span style="font-size:1.5rem; color:#E53E3E;">&#9660;</span>
+        </div>
+        <div class="faq-answer" style="display:none; padding: 8px 0 16px 0; color:#2D3748; font-size:1.1rem;">Yes! Makbites partners with a wide range of restaurants. You can select your favorites when setting up your schedule.</div>
+      </div>
+      <div class="faq-item" style="border-bottom:1px solid #eee;">
+        <div tabindex="0" class="faq-question" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:bold;color:#E53E3E;font-size:1.25rem;padding:12px 0;">
+          How does delivery optimization work?
+          <span style="font-size:1.5rem; color:#E53E3E;">&#9660;</span>
+        </div>
+        <div class="faq-answer" style="display:none; padding: 8px 0 16px 0; color:#2D3748; font-size:1.1rem;">Our system calculates the fastest routes for delivery personnel, ensuring your food arrives hot and on time.</div>
+      </div>
+      <div class="faq-item">
+        <div tabindex="0" class="faq-question" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:bold;color:#E53E3E;font-size:1.25rem;padding:12px 0;">
+          Is my data safe?
+          <span style="font-size:1.5rem; color:#E53E3E;">&#9660;</span>
+        </div>
+        <div class="faq-answer" style="display:none; padding: 8px 0 16px 0; color:#2D3748; font-size:1.1rem;">Absolutely. We use secure protocols to keep your information and orders safe at all times.</div>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Accordion: only one open at a time
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('open');
+          item.querySelector('.faq-answer').style.display = 'none';
+        });
+        const parent = this.parentElement;
+        parent.classList.add('open');
+        parent.querySelector('.faq-answer').style.display = 'block';
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('open');
+            item.querySelector('.faq-answer').style.display = 'none';
+          });
+          const parent = this.parentElement;
+          parent.classList.add('open');
+          parent.querySelector('.faq-answer').style.display = 'block';
+        }
+      });
+    });
+  </script>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Makbites. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 

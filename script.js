@@ -140,4 +140,12 @@ function revealOnScroll() {
   });
 }
 window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('DOMContentLoaded', revealOnScroll); 
+window.addEventListener('DOMContentLoaded', () => {
+  revealOnScroll();
+  // Trigger counters on page load if stats is visible
+  const stats = document.getElementById('stats');
+  if (stats && stats.getBoundingClientRect().top < window.innerHeight - 100) {
+    animateCounters();
+    countersAnimated = true;
+  }
+}); 

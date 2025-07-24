@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Makbites</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <header class="header sticky">
+    <img src="assets/images/logo.png" alt="Makbites Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="how.html">How It Works & Features</a></li>
+        <li><a href="restaurants.html">Restaurants</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="testimonials" id="testimonials" style="margin-bottom: 40px;">
+    <h2 style="color: #E53E3E; font-family: 'Creepster', cursive, sans-serif; font-size: 2.3rem; margin-bottom: 24px;">What Our Users Say</h2>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 32px;">
+      <button id="testimonial-prev" style="background: #E53E3E; color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;"><span>&#8592;</span></button>
+      <div id="testimonial-columns" style="display: flex; flex-direction: column; gap: 32px; min-width: 320px; max-width: 340px;">
+        <!-- Testimonials will be injected here -->
+      </div>
+      <button id="testimonial-next" style="background: #E53E3E; color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;"><span>&#8594;</span></button>
+    </div>
+  </section>
+  <script>
+    const testimonials = [
+      { text: "I love the scheduled deliveries. My meals are always on time.", author: "- Peter, Busy Executive" },
+      { text: "Makbites has made my lunch routine effortless. I never miss a meal!", author: "- Alex, Student" },
+      { text: "The delivery is always on time and the app is super easy to use.", author: "- Brenda, Office Worker" },
+      { text: "As a delivery person, the optimized routes save me so much time!", author: "- Samuel, Delivery Partner" },
+      { text: "I love how I can plan my meals for the whole week—no more last-minute decisions!", author: "- Faith, Busy Parent" },
+      { text: "The variety of restaurants is amazing. I always find something new to try.", author: "- Kevin, Foodie" },
+      { text: "Makbites is a lifesaver during exam season. No more worrying about food!", author: "- Sarah, University Student" },
+      { text: "The customer support is fantastic and always ready to help.", author: "- Daniel, Customer" },
+      { text: "I appreciate the secure payment options and reliability.", author: "- Linda, Professional" },
+      { text: "The app interface is so easy to use, even for my parents!", author: "- Grace, Family User" },
+      { text: "I love the scheduled deliveries. My meals are always on time.", author: "- Peter, Busy Executive" },
+      { text: "Makbites helps me stick to my diet plan with ease.", author: "- Olivia, Health Enthusiast" }
+    ];
+    let columnIndex = 0;
+    const testimonialsPerColumn = 3;
+    const totalColumns = Math.ceil(testimonials.length / testimonialsPerColumn);
+    function showTestimonialColumn(idx) {
+      const container = document.getElementById('testimonial-columns');
+      container.innerHTML = '';
+      for (let i = 0; i < testimonialsPerColumn; i++) {
+        const tIdx = idx * testimonialsPerColumn + i;
+        if (tIdx < testimonials.length) {
+          const t = testimonials[tIdx];
+          const card = document.createElement('div');
+          card.className = 'testimonial-card';
+          card.style = 'background: #fff; border-radius: 28px; box-shadow: 0 2px 24px rgba(229,62,62,0.08); max-width: 320px; min-width: 220px; padding: 28px 22px 18px 22px; text-align: center; font-style: italic; color: #2D3748; margin-bottom: 0;';
+          card.innerHTML = `“${t.text}”<br><span style="color: #E53E3E; font-size: 1.1rem; font-weight: 500; font-style: normal; display:block; margin-top:12px;">${t.author}</span>`;
+          container.appendChild(card);
+        }
+      }
+    }
+    document.getElementById('testimonial-prev').onclick = function() {
+      columnIndex = (columnIndex - 1 + totalColumns) % totalColumns;
+      showTestimonialColumn(columnIndex);
+    };
+    document.getElementById('testimonial-next').onclick = function() {
+      columnIndex = (columnIndex + 1) % totalColumns;
+      showTestimonialColumn(columnIndex);
+    };
+    // Initialize
+    showTestimonialColumn(columnIndex);
+  </script>
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 220px;">
+      <div style="font-size: 1.5rem; color: #E53E3E; font-weight: bold; margin-bottom: 18px;">Email: <a href="mailto:makbites10@gmail.com" style="color: #E53E3E; text-decoration: underline;">makbites10@gmail.com</a></div>
+      <div style="font-size: 1.5rem; color: #E53E3E; font-weight: bold;">Phone: <a href="tel:+256704493365" style="color: #E53E3E; text-decoration: underline;">+256704493365</a></div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Makbites. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 
