@@ -195,9 +195,15 @@ class _OrdersPageState extends State<OrdersPage> {
                       final customerName = _userIdToName[userId] ?? userId;
                       final displayOrderId = '#ORD${(index + 1).toString().padLeft(3, '0')}';
                       final timestamp = orderData['clientTimestamp'];
-                      final orderTime = (timestamp != null && timestamp is Timestamp)
-                          ? DateFormat('yyyy-MM-dd – kk:mm').format(timestamp.toDate())
-                          : 'Unknown time';
+                      final scheduledSendTime = orderData['scheduledSendTime'];
+                      String orderTime;
+                      if (scheduledSendTime != null && scheduledSendTime is Timestamp) {
+                        orderTime = DateFormat('yyyy-MM-dd – kk:mm').format(scheduledSendTime.toDate());
+                      } else if (timestamp != null && timestamp is Timestamp) {
+                        orderTime = DateFormat('yyyy-MM-dd – kk:mm').format(timestamp.toDate());
+                      } else {
+                        orderTime = 'Unknown time';
+                      }
 
                       final foodItem = orderData['food'] ?? 'No items';
                       final status = orderData['status'].toString().trim();
